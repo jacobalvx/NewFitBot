@@ -1,0 +1,17 @@
+
+<h1>Index de trainings</h1>
+
+
+<%=@trainer.name%>
+<ul>
+	<% @trainings.each do |training|%>
+		<li>
+			<strong><%= training.name%></strong><br>
+			<strong><%= training.description%></strong><br>
+			<strong><%= training.day%></strong><br>
+		</li>
+
+	<%end%>
+	
+	<%= link_to "Volver", user_path(@trainer.id) %>
+</ul>
