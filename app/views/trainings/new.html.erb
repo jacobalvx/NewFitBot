@@ -1,20 +1,23 @@
 <h1>Formulario para crear nuevo entrenamiento</h1>
 <h1>para este entrenador: <%= @trainer.name %></h1>
 
-<%= form_for [@trainer, @training] do |u| %>
+<%= form_for[@trainer, @training], url: new_trainer_trainings_path do |u| %>
+
+
 	<%=	u.label :name %>
 	<%=	u.text_field :name %>
 	<%=	u.label :description %>
 	<%=	u.text_field :description %>
 	<%=	u.label :day %>
 	<%=	u.text_field :day %>
+	<%#= form.collection_select :athlete_ids, @athletes, :id, :name, {}, {:multiple => true} %>
 	
 	
 	<%= u.submit "Create Training" %>
 
 <% end %>
 
-<%= link_to "Volver a listado", user_path(@trainer) %>
+<%# link_to "Volver a listado", user_path(@trainer) %>
 
 
-
+<%#%>

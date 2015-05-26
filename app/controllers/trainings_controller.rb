@@ -1,25 +1,27 @@
 class TrainingsController < ApplicationController
 
 	def new
-		@trainer = User.find params[:user_id]
+		@trainer = current_user
 		@training = Training.new
+		@athletes = @trainer.athletes
 	end
 
 	def create
-		@trainer = User.find params[:user_id]		
+		@trainer = current_user		
 		@training = @trainer.trainer_trainings.new training_params
+		 
 		
 		if @training.save
 			#flash[:notice] = "Entry created successfully"
-			redirect_to user_trainings_path(@trainer.id)
+			redirect_to trainer_trainings_path(@trainer.id)
 		else
 			flash[:notice] = "training not created"
-			render new_user_training_path(@trainer.id)
+			render new_trainer_training_path(@trainer.id)
 		end	
 	end
 
 	def index
-	  	@trainer = User.find params[:user_id]
+	  	@trainer = current_user
 	  	@trainings = @trainer.trainer_trainings.order(created_at: :desc)
   	end
 

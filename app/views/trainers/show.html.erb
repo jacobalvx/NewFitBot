@@ -1,0 +1,32 @@
+
+<h1>Bienvenido <%= @user.name %></h1>
+
+<p>
+  <strong>name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>email:</strong>
+  <%= @user.email %>
+</p>
+ 
+<p>
+  <strong>role:</strong>
+  <%= @user.role %>
+</p>
+<p>
+  <strong>id:</strong>
+  <%= @user.id %>
+</p> 	 	
+
+
+<% if current_user.role == 'trainer' %>
+<%= link_to "New Training", new_trainer_training_path(@user.id) %></br>
+<%= link_to "View Trainings", trainer_trainings_path(@user.id)%></br>
+
+<%= link_to "New Athlete", new_athlete_path %></br>
+<%= link_to "View Athletes", athletes_path %></br>
+<% else %>
+Tu no puedes 
+<% end %> 		 

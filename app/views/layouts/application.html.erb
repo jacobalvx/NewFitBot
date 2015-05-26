@@ -7,7 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<% if !current_user %>
+	<a href="<%= new_user_session_path %>">Contectate</a>
+	<a href="<%= new_user_registration_path %>">Registrate</a>
+	<% else %>
+	<a href="<%= edit_user_registration_path %>">Perfil</a>
+	<a href="<%= destroy_user_session_path %>">Cerrar sesion</a>
+	<% end %> 	
  <p class="notice"><%= notice %></p>
  <p class="alert"><%= alert %></p>
 <%= yield %>

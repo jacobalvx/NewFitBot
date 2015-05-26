@@ -1,0 +1,15 @@
+
+<h1>Listado de Athletes</h1>
+
+
+
+<ul>
+	<% @athletes.each do |athlete|%>
+	<li><%= link_to athlete.name, athlete_path(athlete.id) %></li>
+	<li><%= athlete.email %></li>
+	<li><%= athlete.role %></li>
+	<% end %>
+</ul>
+
+<%= link_to "Insert new athlete", new_athlete_path%>
+
