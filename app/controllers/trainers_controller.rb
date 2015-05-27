@@ -6,6 +6,7 @@ class TrainersController < ApplicationController
 
 	def create
 		@user = User.create user_params
+		
 
 		if @user.save
 			#flash[:notice] = "Entry created successfully"

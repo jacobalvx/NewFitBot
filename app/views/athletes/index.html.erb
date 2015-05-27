@@ -1,15 +1,17 @@
 
-<h1>Listado de Athletes</h1>
+<div class="container">
+	<div class="col-md-4 col-md-offset-4">
+		<h1>Listado de Athletes</h1>
 
+		<ul>
+			<% @athletes.each do |athlete|%>
+			<li><%= link_to athlete.name, athlete_path(athlete.id) %></li>
+			<li><%= athlete.email %></li>
+			<li><%= athlete.role %></li>
+			<% end %>
+		</ul>
 
-
-<ul>
-	<% @athletes.each do |athlete|%>
-	<li><%= link_to athlete.name, athlete_path(athlete.id) %></li>
-	<li><%= athlete.email %></li>
-	<li><%= athlete.role %></li>
-	<% end %>
-</ul>
-
-<%= link_to "Insert new athlete", new_athlete_path%>
-
+		<%= link_to "Insert new athlete", new_athlete_path%>
+		<%= link_to "Back", :back, class:'btn btn-danger btn-block' %>
+	</div>
+</div>

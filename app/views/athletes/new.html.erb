@@ -1,21 +1,61 @@
-<h1> Create New Athlete</h1>
 
-<%= form_for(@athlete, as: :athlete, url: athletes_path) do |u| %>
-	<%=	u.label :name %>
-	<%=	u.text_field :name %>
-	<%=	u.label :email %>
-	<%=	u.text_field :email %>
-	<%=	u.label :password %>
-	<%=	u.text_field :password %>
-	<%=	u.label :weight %>
-	<%=	u.number_field :weight %>
-	<%=	u.label :fat %>
-	<%=	u.number_field :muscle %>
-	<%=	u.label :sport %>
-	<%=	u.text_field :sport %>
+
+<div class="container">
+<div class="row">
+  
+  <div class="col-md-4 col-md-offset-4">
+	<h1> Create New Athlete</h1>
+		<%= form_for(@athlete, as: :athlete, url: athletes_path) do |u| %>
+		<div class="form-group">
+			<%=	u.label :name %>
+			<%=	u.text_field :name, class:'form-control' %>
+		</div>
+			<div class="form-group">
+				<%=	u.label :email %>
+				<%=	u.text_field :email, class:'form-control' %>
+			</div>
+			<div class="form-group">
+				<%=	u.label :password %>
+				<%=	u.text_field :password, class:'form-control' %>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<p class="text-center"><%=	u.label "Weight kg" %>
+						<%=	u.number_field :weight, class:'form-control' %></p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<p class="text-center"><%=	u.label "fat %" %>
+						<%=	u.number_field :fat, class:'form-control' %></p>
+					</div>
+				</div>
+				<div class="col-md-4">
+						<div class="form-group">
+						<p class="text-center"><%=	u.label "muscle %" %>
+						<%=	u.number_field :muscle, class:'form-control' %></p>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<%=	u.label :sport %>
+				<%=	u.text_field :sport, class:'form-control' %>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<%= link_to "Cancel", :back, class:'btn btn-danger btn-block' %>
+				</div>
+				<div class="col-md-6">
+					<%= u.submit "Create Athlete", class:'btn btn-success btn-block' %>
+				</div>
+				
+			</div>
+		<% end %>
+	</div>
 	
-	<%= u.submit "Create Athlete" %>
-<% end %>
+	</div>
+</div>
 
 
 

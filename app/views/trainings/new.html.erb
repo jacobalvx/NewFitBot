@@ -1,7 +1,7 @@
 <h1>Formulario para crear nuevo entrenamiento</h1>
 <h1>para este entrenador: <%= @trainer.name %></h1>
 
-<%= form_for[@trainer, @training], url: new_trainer_trainings_path do |u| %>
+<%= form_for [@trainer, @training], url: trainer_trainings_path(@trainer) do |u| %>
 
 
 	<%=	u.label :name %>

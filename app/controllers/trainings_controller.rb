@@ -7,7 +7,7 @@ class TrainingsController < ApplicationController
 	end
 
 	def create
-		@trainer = current_user		
+		@trainer = current_user	
 		@training = @trainer.trainer_trainings.new training_params
 		 
 		
@@ -16,7 +16,7 @@ class TrainingsController < ApplicationController
 			redirect_to trainer_trainings_path(@trainer.id)
 		else
 			flash[:notice] = "training not created"
-			render new_trainer_training_path(@trainer.id)
+			render "new"
 		end	
 	end
 
