@@ -1,36 +1,35 @@
+
 <div class="row">
-	<div class="col-md-4 col-md-offset-4">
-		<h1>Bienvenido <%= @user.name %></h1>
-
-		<p>
-			<strong>name:</strong>
-			<%= @user.name %>
-		</p>
-
-		<p>
-			<strong>email:</strong>
-			<%= @user.email %>
-		</p>
-
-		<p>
-			<strong>role:</strong>
-			<%= @user.role %>
-		</p>
-		<p>
-			<strong>id:</strong>
-			<%= @user.id %>
-		</p> 	 	
-
-
+	<div class="col-md-4 col-md-offset-2 well">
+		<h1>Welcome <small><%= @user.name %></small></h1>
+		<div class="form-group">
+			<p class:'form-control'>
+				<strong>name:</strong>
+				<%= @user.name %>
+			</p>
+		</div>
+		<div class="form-group">
+			<p class:'form-control'>
+				<strong>email:</strong>
+				<%= @user.email %>
+			</p>
+		</div>
+	</div> 	
+	<div class="col-md-4">
 		<% if current_user.role == 'trainer' %>
-		<%= link_to "New Training", new_trainer_training_path(@user.id) %></br>
-		<%= link_to "View Trainings", trainer_trainings_path(@user.id)%></br>
-
-		<%= link_to "New Athlete", new_athlete_path %></br>
-		<%= link_to "View Athletes", athletes_path %></br>
+		<div class="well">
+				<%= link_to "New Training", new_trainer_training_path(@user.id), class:'btn btn-success btn-block' %>
+				<%= link_to "View Trainings", trainer_trainings_path(@user.id), class:'btn btn-warning btn-block'%>
+		</div>
+		<div class="well">
+				<%= link_to "New Athlete", new_athlete_path, class:'btn btn-success btn-block'%>
+				<%= link_to "View Athletes", athletes_path, class:'btn btn-warning btn-block'%>
+		</div> 	
 		<% else %>
-		Tu no puedes 
-		<% end %> 		 
+			Tu no puedes 
+		<% end %> 	
+	</div>			 
 
 	</div>
-</div>
+
+

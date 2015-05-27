@@ -1,17 +1,22 @@
 
-<div class="container">
+<div class="row">
 	<div class="col-md-4 col-md-offset-4">
-		<h1>Listado de Athletes</h1>
-
-		<ul>
+		<h1>Listado de Athletes <span class="pull-right"> <%= link_to "Back", trainer_path(current_user.id), class:'btn btn-danger btn-xs' %></span></h1>
+	
+		<ul class="well">
 			<% @athletes.each do |athlete|%>
-			<li><%= link_to athlete.name, athlete_path(athlete.id) %></li>
-			<li><%= athlete.email %></li>
-			<li><%= athlete.role %></li>
+				<li><a  data-toggle="collapse" href="#collapse<%= athlete.id %>" aria-expanded="false" aria-controls="collapseExample"><%= athlete.name %></a></li>
+					<div class="collapse" id="collapse<%= athlete.id %>">
+					  <div class="well">
+					  	<p><%= athlete.email %></p>
+					  	<p><%= athlete.name %></p>
+					    <a href="<%= athlete_path(athlete.id) %>" class="btn btn-primary btn-block">Ver usuario</a>
+					  </div>
+					</div>
 			<% end %>
 		</ul>
-
-		<%= link_to "Insert new athlete", new_athlete_path%>
-		<%= link_to "Back", :back, class:'btn btn-danger btn-block' %>
+<%= link_to "Insert new athlete", new_athlete_path,class:'btn btn-success btn-block' %>
+		
 	</div>
+	
 </div>

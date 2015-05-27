@@ -26,7 +26,7 @@ class TrainingsController < ApplicationController
   	end
 
 	def show
-		@training = training.find(params[:id])
+		@training = Taining.find(params[:id])
 	end
 
 	private

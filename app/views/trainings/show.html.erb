@@ -1,1 +1,46 @@
-<h1>Vista de los trainings de un trainer</h1>
+<h1>Vista de un training de un trainer</h1>
+
+<div class="row">
+<div class="col-md-8 col-md-offset-2 ">
+		<h1>Athlete <%= @athlete.name %><span class="pull-right"> <%= link_to "Back", athletes_path, class:'btn btn-danger btn-xs' %></span></h1></h1>
+		</div>
+	<div class="col-md-8 col-md-offset-2 well">
+	<div class="col-md-4">
+		<img src="http://placehold.it/300&text=<%= @athlete.name %>" alt="" class="img-circle" width="100%" height="auto">
+	</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<p>
+					<strong>name:</strong>
+					<%= @athlete.name %>
+				</p>
+				
+				<p>
+					<strong>email:</strong>
+					<%= @athlete.email %>
+				</p>
+			</div>
+			</div>
+			<div class="col-md-4 ">
+				<p>
+					<strong>weight:</strong>
+					<%= @athlete.weight %>
+				</p>
+				<p>
+					<strong>fat:</strong>
+					<%= @athlete.fat %>
+					<strong>%</strong>
+				</p> 	 	
+				<p>
+					<strong>muscle:</strong>
+					<%= @athlete.muscle %>
+					<strong>%</strong>
+				</p> 
+				<p>
+					<strong>sport:</strong>
+					<%= @athlete.sport %>
+				</p>
+			</div>
+		</div>		
+
+</div>
