@@ -1,0 +1,39 @@
+<div class="col-md-8 col-md-offset-2">
+	<h1>Edit Training by: <%= @trainer.name %> </h1>
+		<div class="col-md-12  well">
+		  	<div class="col-md-6">
+				<%= form_for [@trainer, @training] , url: trainer_training_path(@trainer,@training) do |u| %>
+					<div class="form-group">
+						<%=	u.label :name %>
+						<%=	u.text_field :name, class:'form-control' %>
+					</div>
+					<div class="form-group">
+						<%=	u.label :day %>
+						<%=	u.text_field :day, class:'form-control'%>
+					</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<%=	u.label :description %>
+					<%=	u.text_area :description, class:'form-control' %>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+			<label class="col-sm-12 control-label">Select Athlete</label>
+				<%= u.collection_select(:athlete_ids, @athletes, :id, :name, {:multiple => true}, {:class =>'form-control'})%>
+			</div>
+		</div>
+	</div>
+		<div class="col-md-6 col-md-offset-3">
+			<div class="col-md-6">
+					<%= link_to "Cancel", :back, class:'btn btn-danger btn-block' %>
+			</div>
+			<div class="col-md-6">
+					<%= u.submit "Update Training",class:'btn btn-success btn-block'%>
+			</div>
+		<% end %>
+
+</div>
+</div>

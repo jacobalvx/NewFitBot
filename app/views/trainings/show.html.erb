@@ -3,7 +3,9 @@
 </div>
 <div class="row">
 	<div class="col-md-8 col-md-offset-2 ">
-		<h1>Training <%= @training.name %><span class="pull-right"> <%= link_to "Back", athletes_path, class:'btn btn-danger btn-xs' %></span></h1></h1>
+		<h2>Training <%= @training.name %>
+			<span class="pull-right"><%= link_to "Edit", edit_trainer_training_path(current_user, @training), class:"btn btn-warning"%> <%= link_to "Back", athletes_path, class:'btn btn-danger' %></span>
+		</h2>
 	</div>
 		<div class="col-md-8 col-md-offset-2 well">
 			<div class="col-md-4">
@@ -21,6 +23,7 @@
 						<%= @training.description %>
 					</p>
 				</div>
-			</div>
-		</div>		
+			</div>	
+		</div>
+	</div>		
 </div>

@@ -29,6 +29,22 @@ class TrainingsController < ApplicationController
 		@training = Training.find(params[:id])
 	end
 
+	def edit
+    @trainer = current_user
+    @training = Training.find(params[:id])
+    @athletes = @trainer.athletes
+  	end
+
+  	def update
+    @trainer = current_user
+    @training = Training.find(params[:id])
+	    if @training.update_attributes(training_params)
+	      redirect_to trainer_training_path(@trainer,@training)
+	    else
+	      render 'edit'
+	    end
+ 	end
+
 	private
 	def training_params
 		params.require(:training).permit(:name, :day, :description, :trainer_id)
